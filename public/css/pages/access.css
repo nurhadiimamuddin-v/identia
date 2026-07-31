@@ -1,0 +1,266 @@
+/* ── MANUAL STRIPES & BORDERS ── */
+    #myTable { border-spacing: 0 12px !important; border-collapse: separate !important; }
+    #myTable thead th { border-bottom: 1px solid #e2e8f0 !important; padding-bottom: 8px !important; }
+    #myTable tbody tr td { border-bottom: none !important; padding-top: 6px !important; padding-bottom: 6px !important; }
+
+    .pill { display: inline-flex; align-items: center; font-weight: 600; font-size: 11px; padding: 3px 12px; border-radius: 20px; }
+    .pill-green { background: #e8f5e9; color: #2e7d32; }
+    .pill-red   { background: #ffebee; color: #c62828; }
+    .pill-amber { background: #fff8e1; color: #f57f17; }
+    .pill-gray  { background: #f5f5f5; color: #757575; }
+
+    .mdl-card { border: none; border-radius: 6px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+    .confirm-circle { width: 50px; height: 50px; border-radius: 50%; border: 2.5px solid #ef5350; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; }
+    .confirm-circle span { font-size: 28px; color: #ef5350; line-height: 1; }
+    .delete-ok-msg { display: none; margin-top: 12px; font-size: 13px; color: #43a047; font-weight: 500; }
+    .frm-lbl { font-size: 12px; font-weight: 600; color: #555; margin-bottom: 3px; }
+    .pin-warning { display: flex; align-items: flex-start; gap: 8px; background: #fffbeb; border: 1px solid #fcd34d; border-radius: 6px; padding: 10px 12px; font-size: 12px; color: #92400e; }
+    .pin-warning i { font-size: 18px; color: #f59e0b; flex-shrink: 0; margin-top: 1px; }
+
+    .eye-toggle { cursor: pointer; background: #fff; border-left: none; }
+    .eye-toggle:hover i { color: #4b7bec; }
+    .info-alert { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; display: flex; align-items: center; gap: 8px; padding: 8px 12px; font-size: 13px; color: #1e293b; }
+    .info-alert-icon { width: 22px; height: 22px; border-radius: 50%; background: #1d4ed8; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .info-alert-icon i { color: #e0ecff; font-size: 14px; line-height: 1; }
+
+    /* Button Pulse Animation */
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+      70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .pulse-btn {
+        animation: pulse-green 2s infinite;
+    }
+
+    /* ── Modal Styles (matching login.php) ── */
+    .fp-modal-overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+    }
+
+    .fp-modal-content {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        border-radius: 12px;
+        padding: 30px 24px;
+        text-align: center;
+        color: #333;
+        max-width: 320px;
+        width: 90%;
+        animation: fpPopIn 0.2s ease-out forwards;
+        position: relative;
+    }
+
+    .fp-icon-wrapper {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Fingerprint scanning state — solid color + light sweep + pulse */
+    .fp-icon-wrapper i.fp-scanning {
+        font-size: 100px;
+        background: linear-gradient(180deg, #4B49AC 40%, rgba(255,255,255,0.5) 50%, #4B49AC 60%);
+        background-size: 100% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: fpSweep 2.5s linear infinite, fpPulse 2s infinite ease-in-out;
+    }
+
+    /* Spin loader state */
+    .fp-icon-wrapper i.mdi-loading {
+        font-size: 80px;
+    }
+
+    /* Success icon */
+    .fp-icon-wrapper i.fp-success {
+        font-size: 100px;
+        animation: fpSuccessPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    .fp-result-success {
+        animation: fpGlowGreen 0.5s ease-out forwards;
+    }
+
+    /* Error icon */
+    .fp-icon-wrapper i.fp-error {
+        font-size: 100px;
+        animation: fpShake 0.5s ease forwards;
+    }
+    .fp-result-error {
+        animation: fpGlowRed 0.5s ease-out forwards;
+    }
+
+    .fp-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #1f2937;
+    }
+
+    .fp-text {
+        font-size: 14px;
+        color: #6b7280;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+
+    .fp-cancel-btn {
+        background: #f3f4f6;
+        border: 1px solid #e5e7eb;
+        color: #4b5563;
+        padding: 8px 24px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+        width: 100%;
+    }
+    .fp-cancel-btn:hover {
+        background: #e5e7eb;
+        color: #1f2937;
+    }
+
+    /* Door icon style */
+    .fp-door-icon {
+        margin-bottom: 24px !important;
+    }
+    .fp-door-circle {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: #10b981;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+        animation: fpSuccessPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    .fp-door-circle i {
+        font-size: 44px;
+        color: #fff;
+    }
+
+    .fp-lock-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        padding: 10px;
+        background: #ef4444;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .fp-lock-btn:hover {
+        background: #dc2626;
+    }
+
+    /* ── Countdown Timer ── */
+    .fp-countdown {
+        position: absolute;
+        top: 12px;
+        right: 14px;
+        width: 32px;
+        height: 32px;
+        z-index: 10;
+    }
+    .fp-countdown-svg {
+        width: 32px;
+        height: 32px;
+        transform: rotate(-90deg);
+    }
+    .fp-countdown-bg {
+        fill: none;
+        stroke: #e5e7eb;
+        stroke-width: 2.5;
+    }
+    .fp-countdown-ring {
+        fill: none;
+        stroke: #4B49AC;
+        stroke-width: 2.5;
+        stroke-dasharray: 97.4;
+        stroke-dashoffset: 0;
+        stroke-linecap: round;
+    }
+    .fp-countdown-num {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 12px;
+        font-weight: 700;
+        color: #4B49AC;
+        line-height: 1;
+    }
+
+    @keyframes fpCountdownStroke {
+        from { stroke-dashoffset: 0; }
+        to { stroke-dashoffset: 97.4; }
+    }
+
+    /* ── Keyframes ── */
+    @keyframes fpFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes fpFadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+    @keyframes fpPopIn {
+        from { transform: scale(0.95); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+    @keyframes fpSweep {
+        0% { background-position: 0 120%; }
+        100% { background-position: 0 -20%; }
+    }
+    @keyframes fpPulse {
+        0% { transform: scale(0.95); opacity: 0.8; }
+        50% { transform: scale(1.05); opacity: 1; }
+        100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    @keyframes fpSuccessPop {
+        0% { transform: scale(0.3); opacity: 0; }
+        60% { transform: scale(1.1); }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes fpShake {
+        0%, 100% { transform: translateX(0); }
+        20% { transform: translateX(-6px); }
+        40% { transform: translateX(6px); }
+        60% { transform: translateX(-4px); }
+        80% { transform: translateX(4px); }
+    }
+    @keyframes fpGlowGreen {
+        0% { background: transparent; }
+        50% { background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%); }
+        100% { background: transparent; }
+    }
+    @keyframes fpGlowRed {
+        0% { background: transparent; }
+        50% { background: radial-gradient(circle, rgba(239,68,68,0.08) 0%, transparent 70%); }
+        100% { background: transparent; }
+    }
+

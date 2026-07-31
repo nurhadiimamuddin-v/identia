@@ -1,0 +1,13 @@
+.btn-custom-dashboard { background-color: #fff !important; border: 1px solid #e5e9f0 !important; color: #4b49ac !important; }
+    .btn-custom-dashboard:hover, .btn-custom-dashboard:focus, .btn-custom-dashboard:active { background-color: #f8f9fa !important; border: 1px solid #e5e9f0 !important; color: #4b49ac !important; box-shadow: none !important; }
+    .dropdown-dots-btn { background: transparent !important; border: none !important; box-shadow: none !important; }
+    .dropdown-dots-btn:hover, .dropdown-dots-btn:focus, .dropdown-dots-btn:active { background: transparent !important; border: none !important; box-shadow: none !important; outline: none !important; }
+    .dropdown-dots-btn i { font-size: 28px; color: #495057; }
+    #myTable thead th { border-bottom: 1px solid #e2e8f0 !important; }
+    #myTable tbody tr td { border-bottom: none !important; }
+    .mdl-card { border: none; border-radius: 6px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); }
+    .frm-lbl { font-size: 12px; font-weight: 600; color: #555; margin-bottom: 3px; }
+    .btn-custom-dropdown:hover, .btn-custom-dropdown:focus { background-color: #ededed !important; }
+    .delete-confirm-cb:checked ~ .custom-control-label::before { background-color: #ff4747 !important; border-color: #ff4747 !important; }
+    .row-highlight { background-color: #f1f5f9 !important; }
+
